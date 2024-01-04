@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Defines a function for representing Pascal's triangle."""
 
 from math import factorial
