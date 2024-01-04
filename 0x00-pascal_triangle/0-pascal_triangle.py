@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Defines a function for representing Pascal's triangle."""
 
-from math import factorial
-
 
 def pascal_triangle(n):
     """
@@ -18,7 +16,7 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-        
+
     row = 1
     triangle = []
 
