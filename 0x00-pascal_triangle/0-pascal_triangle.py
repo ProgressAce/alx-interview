@@ -1,16 +1,6 @@
 """Defines a function for representing Pascal's triangle."""
 
-
-def factorial(num):
-    """Calculates the factorial of the given number.
-
-    Assumes the number will always be an integer."""
-
-    fact = 1
-    for i in range(1, num + 1):
-        fact *= i
-
-    return fact
+from math import factorial
 
 
 def pascal_triangle(n):
