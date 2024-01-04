@@ -5,11 +5,20 @@ from math import factorial
 
 
 def pascal_triangle(n):
-    """Returns a list of lists of integers, representing the triangle.
+    """
+    Returns a list of lists of integers, representing the triangle.
 
     Assumes n will always be an integer.
-    Return:
-        an empty list if n < 0."""
+
+    Args:
+    n (integer): The number of rows to create for Pascal's Triangle.
+
+    Returns:
+    An empty list if n <= 0
+    """
+    if n <= 0:
+        return []
+        
     row = 1
     triangle = []
 
