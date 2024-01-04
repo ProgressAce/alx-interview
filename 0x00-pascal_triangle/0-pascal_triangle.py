@@ -16,16 +16,13 @@ def pascal_triangle(n):
     while row <= n:
         tri_lst = []
         for col in range(row):
-            if col in (0, row - 1):  # check for first or last element of row
+            if col in (0, row - 1):  # check for first and last element of row
                 tri_lst.append(1)
             else:
-                # formula for any entry in the pascal triangle
-                # row! / column!(row - column)!
-                # row and column indexing should begin at 0.
-                pascal_entry = factorial(row - 1) / (
-                    factorial(col) * factorial(row - 1 - col)
-                )
-                tri_lst.append(round(pascal_entry))
+                # add new entry based on the sum of its two upper elements
+                # row - 2 is used since row starts at 1 and not 0
+                pas_entry = triangle[row - 2][col - 1] + triangle[row - 2][col]
+                tri_lst.append(pas_entry)
 
         row += 1
         triangle.append(tri_lst)
