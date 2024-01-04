@@ -17,6 +17,6 @@ if __name__ == "__main__":
     print_triangle(pascal_triangle(6))
     print("------")
     print_triangle(pascal_triangle(0))
-    print_triangle(type(pascal_triangle(0)))
+    print(type(pascal_triangle(0)))
     print("------")
     print_triangle(pascal_triangle(1))
