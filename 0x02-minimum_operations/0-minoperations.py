@@ -19,12 +19,14 @@ def minOperations(n: int) -> int:
     file_text: str = "H"
     clipboard: str = ""
 
-    # choosing factors of n and their factors to calculate minimum operation count
+    # choosing factors of n and their factors to calculate minimum
+    # operation count
     prime_factor: int = 1
     chosen_factor: int = 1
     p_factors: List[int] = []
 
-    # improve my using a dict of key/value pairs for chosen_factors & prime_factors
+    # improve my using a dict of key/value pairs for chosen_factors
+    # & prime_factors
 
     # find second biggest factor of n.
     for factor in range(2, int(n / 2)):
