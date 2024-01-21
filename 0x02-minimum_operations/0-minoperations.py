@@ -15,15 +15,15 @@ def minOperations(n: int) -> int:
     if n <= 1 or not isinstance(n, int):
         return 0
 
-    op_count: int = 0
-    file_text: str = "H"
-    clipboard: str = ""
+    op_count = 0
+    file_text = "H"
+    clipboard = ""
 
     # choosing factors of n and their factors to calculate minimum
     # operation count
-    prime_factor: int = 1
-    chosen_factor: int = 1
-    p_factors: List[int] = []
+    prime_factor = 1
+    chosen_factor = 1
+    p_factors = []
 
     # improve my using a dict of key/value pairs for chosen_factors
     # & prime_factors
@@ -72,17 +72,20 @@ def minOperations(n: int) -> int:
     file_text = clipboard * paste_num
     op_count += paste_num - 1
 
-    index: int = -1
-    while file_text != "H" * n:
-        # copy operation
-        clipboard = file_text
-        op_count += 1
+    index = -1
+    try:
+        while file_text != "H" * n:
+            # copy operation
+            clipboard = file_text
+            op_count += 1
 
-        # paste operation
-        paste_num = p_factors[index] - 1
-        file_text += clipboard * paste_num
-        op_count += paste_num
+            # paste operation
+            paste_num = p_factors[index] - 1
+            file_text += clipboard * paste_num
+            op_count += paste_num
 
-        index -= 1
+            index -= 1
+    except MemoryError:
+        return 0
 
     return op_count
