@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Defines a function to determine the fewest operations."""
+"""Defines a function to determine the fewest operations to solve the issue"""
 
 from typing import List
 
