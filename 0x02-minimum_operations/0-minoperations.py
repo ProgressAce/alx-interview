@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+"""Defines a function to determine the fewest operations."""
 
 from typing import List
 
@@ -15,7 +15,7 @@ def minOperations(n: int) -> int:
     if n <= 1 or not isinstance(n, int):
         return 0
 
-    op_count = 0
+    op_count: int = 0
     file_text: str = "H"
     clipboard: str = ""
 
@@ -72,7 +72,7 @@ def minOperations(n: int) -> int:
     file_text = clipboard * paste_num
     op_count += paste_num - 1
 
-    index = -1
+    index: int = -1
     while file_text != "H" * n:
         # copy operation
         clipboard = file_text
