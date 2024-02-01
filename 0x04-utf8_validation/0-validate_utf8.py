@@ -9,7 +9,7 @@ def validUTF8(data):
         return False
 
     for int_char in data:
-        if int_char < 0 or int_char > 255:
+        if int_char < 0 or int_char > 127:
             return False
 
     return True
