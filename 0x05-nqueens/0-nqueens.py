@@ -50,8 +50,8 @@ def is_safe(board, row, col):
     return True
 
 
-def print_board_solution(board):
-    """Prints all the queen positions of the given board's nqueen solution."""
+def add_board_solution(board, sorted_positions):
+    """Records all the queen positions of the given board's nqueen solution."""
 
     board_len = len(board)
     positions = []
@@ -61,10 +61,10 @@ def print_board_solution(board):
             if board[i][j] == "Q":
                 positions.append([i, j])
 
-    print(positions)
+    sorted_positions.append(positions)
 
 
-def solve_n_queen(board, col):
+def solve_n_queen(board, col, sorted_positions):
     """
     Looks at all the possible positions to put n queens on the board.
     and chooses all the valid positions.
@@ -73,7 +73,7 @@ def solve_n_queen(board, col):
     board_len = len(board)
 
     if col == board_len:
-        print_board_solution(board)
+        add_board_solution(board, sorted_positions)
         return
 
     for row_idx in range(board_len):
@@ -81,7 +81,7 @@ def solve_n_queen(board, col):
         if is_safe(board, row_idx, col):
             board[row_idx][col] = "Q"
 
-            solve_n_queen(board, col + 1)
+            solve_n_queen(board, col + 1, sorted_positions)
 
             board[row_idx][col] = "."
 
@@ -98,16 +98,17 @@ def main():
     and returns all the queen positions for each solution of '<n> queens'.
 
     Use:
-        ./n-queen <n>
+        ./0-nqueens <n>
     """
 
     # program's argument validations
-    arg_count = len(argv) - 1
-    if arg_count != 1:
+    arg_count = len(argv)
+    """if arg_count != 2:
         print("Usage: nqueens N")
-        exit(1)
+        exit(1)"""
 
-    n = argv[1]
+    # n = argv[1]
+    n = 4
 
     if not isinstance(n, int):
         print("N must be a number")
@@ -118,8 +119,13 @@ def main():
         exit(1)
 
     board = [["." for block in range(n)] for row in range(n)]
+    sorted_positions = []
 
-    solve_n_queen(board, 0)
+    solve_n_queen(board, 0, sorted_positions)
+
+    sorted_positions.sort()
+    for pos in sorted_positions:
+        print(pos)
 
 
 if __name__ == "__main__":
