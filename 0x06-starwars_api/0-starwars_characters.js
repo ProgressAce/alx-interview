@@ -30,9 +30,14 @@ request(
     const jsonBody = JSON.parse(body);
     const character_urls = jsonBody["characters"];
 
+    let characters = [];
     for (const url of character_urls) {
       const person = await requestUrl(url);
-      console.log(person["name"]);
+      characters.push(person["name"]);
+    }
+
+    for (const name of characters) {
+      console.log(name);
     }
   }
 );
