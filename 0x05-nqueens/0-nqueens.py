@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Program that gives all the valid solutions to the n queen problem."""
 
-from sys import argv
+import sys
 
 
 def is_safe(board, row, col):
@@ -102,21 +102,22 @@ def main():
     """
 
     # program's argument validations
-    arg_count = len(argv)
-    """if arg_count != 2:
+    arg_count = len(sys.argv)
+    if arg_count != 2:
         print("Usage: nqueens N")
-        exit(1)"""
+        sys.exit(1)
 
-    # n = argv[1]
-    n = 4
+    n = sys.argv[1]
 
-    if not isinstance(n, int):
+    try:
+        n = int(n)
+    except ValueError:
         print("N must be a number")
-        exit(1)
+        sys.exit(1)
 
     if n < 4:
         print("N must be at least 4")
-        exit(1)
+        sys.exit(1)
 
     board = [["." for block in range(n)] for row in range(n)]
     sorted_positions = []
