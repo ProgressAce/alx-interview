@@ -27,17 +27,24 @@ function requestUrl(url) {
 request(
   `https://swapi-api.alx-tools.com/api/films/${movieID}`,
   async function printCharacters(err, res, body) {
-    const jsonBody = JSON.parse(body);
-    const character_urls = jsonBody["characters"];
+    if (err !== null) {
+      const jsonBody = JSON.parse(body);
+      const character_urls = jsonBody["characters"];
 
-    let characters = [];
-    for (const url of character_urls) {
-      const person = await requestUrl(url);
-      characters.push(person["name"]);
-    }
+      let characters = [];
+      for (const url of character_urls) {
+        const person = await requestUrl(url);
 
-    for (const name of characters) {
-      console.log(name);
+        if (person) {
+          characters.push(person["name"]);
+        }
+      }
+
+      for (const name of characters) {
+        console.log(name);
+      }
+    } else {
+      console.error("error: ", err);
     }
   }
 );
