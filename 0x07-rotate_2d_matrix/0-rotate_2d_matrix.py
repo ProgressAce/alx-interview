@@ -2,7 +2,7 @@
 """Module for rotating a 2D matrix 90 degrees in a clockwise-direction."""
 
 
-def rotate_matrix(matrix: list):
+def rotate_2d_matrix(matrix: list):
     """Rotates the matrix in a 90 degrees clockwise-direction.
 
        The rotation happens in-place (without creating a duplicate).
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     ]
 
     print(matrix)
-    rotate_matrix(matrix)
+    rotate_2d_matrix(matrix)
     print("90 degrees rotation")
     for row in matrix:
         print(row)
