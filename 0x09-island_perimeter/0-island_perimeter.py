@@ -39,20 +39,24 @@ def island_perimeter(grid):
                 perimeter += 4
 
                 # check for land to one left of island block
-                if grid[i][j - 1] == 1:
-                    perimeter -= 1
+                if j - 1 != -1:
+                    if grid[i][j - 1] == 1:
+                        perimeter -= 1
 
                 # check for land to one up of island block
-                if grid[i - 1][j] == 1:
-                    perimeter -= 1
+                if i - 1 != -1:
+                    if grid[i - 1][j] == 1:
+                        perimeter -= 1
 
                 # check for land to one right of island block
-                if grid[i][j + 1] == 1:
-                    perimeter -= 1
+                if j + 1 != grid_width:
+                    if grid[i][j + 1] == 1:
+                        perimeter -= 1
 
                 # check for land to one down of island block
-                if grid[i + 1][j] == 1:
-                    perimeter -= 1
+                if i + 1 != grid_height:
+                    if grid[i + 1][j] == 1:
+                        perimeter -= 1
 
             else:
                 continue
