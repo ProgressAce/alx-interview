@@ -16,17 +16,19 @@ def island_perimeter(grid):
         the island's perimeter."""
 
     # the bun and neatly placed wrapping - protection
+    """
     if (not isinstance(grid, list) or not isinstance(grid[0], list)
             or not isinstance(grid[0][0], int)):
         return "TypeError: grid is not a list of lists of ints. `~`"
 
-    grid_height = len(grid)
-    grid_width = len(grid[0])
     grid_perimeter = (grid_height * 2) + (grid_width * 2)
 
     # ensure grid's width and height does not exceed 100
     if grid_perimeter > 100:
         raise ValueError("grid's width and height should not exceed 100")
+    """
+    grid_height = len(grid)
+    grid_width = len(grid[0])
 
     # the meat, (the taste and sustenance/nutrition) - the operations
     perimeter = 0
