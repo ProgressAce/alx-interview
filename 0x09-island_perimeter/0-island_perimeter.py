@@ -1,64 +1,48 @@
 #!/usr/bin/python3
-"""Calculates an island's perimeter."""
+"""Solves the perimeter of the island."""
 
 
 def island_perimeter(grid):
-    """Computes the island perimeter according to a 2D matrix.
+    """
+    Calculates the perimeter of the island given as a 2D grid.
 
     Arg:
-        grid(list of lists of ints): a 2D matrix of 0s and 1s.
-
-    <grid> is rectangular, with a width and height that should not exceed 100.
-    <grid> is completely surrounded by water. ** Therefore, no need to worry
-    about surpassing outer edge of matrix.
-
+        grid(list): a list of lists of integers, representing water and land.
     Returns:
-        the island's perimeter."""
+        the calculated perimeter of the island.
+    """
 
-    # the bun and neatly placed wrapping - protection
-
-    # if (not isinstance(grid, list) or not isinstance(grid[0], list)
-    #        or not isinstance(grid[0][0], int)):
-    #    return "TypeError: grid is not a list of lists of ints. `~`"
-
-    # grid_perimeter = (grid_height * 2) + (grid_width * 2)
-
-    # ensure grid's width and height does not exceed 100
-    # if grid_perimeter > 100:
-    #    raise ValueError("grid's width and height should not exceed 100")
-
-    grid_height = len(grid)
-    grid_width = len(grid[0])
-
-    # the meat, (the taste and sustenance/nutrition) - the operations
+    # existing_island = 0 to ensure only one island exists on grid
     perimeter = 0
-    for i in range(grid_height):
-        for j in range(grid_width):
-            # a piece of land (island block) was found
-            if grid[i][j] == 1:
-                perimeter += 4
-
-                # check for land to one left of island block
-                if j - 1 != -1:
-                    if grid[i][j - 1] == 1:
-                        perimeter -= 1
-
-                # check for land to one up of island block
-                if i - 1 != -1:
-                    if grid[i - 1][j] == 1:
-                        perimeter -= 1
-
-                # check for land to one right of island block
-                if j + 1 != grid_width:
-                    if grid[i][j + 1] == 1:
-                        perimeter -= 1
-
-                # check for land to one down of island block
-                if i + 1 != grid_height:
-                    if grid[i + 1][j] == 1:
-                        perimeter -= 1
-
-            else:
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if not grid[i][j]:
                 continue
+
+            # the current cell is one beyond this point
+
+            if i != 0:
+                if grid[i - 1][j] == 0:
+                    perimeter += 1
+            else:  # island cells on the top border of grid
+                perimeter += 1
+
+            if j != 0:
+                if grid[i][j - 1] == 0:
+                    perimeter += 1
+            else:  # island cells on the left border of grid
+                perimeter += 1
+
+            if i < len(grid[0]) - 1:
+                if grid[i + 1][j] == 0:
+                    perimeter += 1
+            else:  # island cells on the bottom border of grid
+                perimeter += 1
+
+            if j < len(grid[0]) - 1:
+                if grid[i][j + 1] == 0:
+                    perimeter += 1
+            else:  # island cells on the right border of grid
+                perimeter += 1
 
     return perimeter
