@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Defines a function to solve the coin change problem."""
 
 
