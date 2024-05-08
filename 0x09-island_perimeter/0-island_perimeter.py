@@ -24,7 +24,7 @@ def island_perimeter(grid):
             perimeter += 1
             if i > 0:
                 if grid[i - 1][j] == 1:
-                    perimeter += 1
+                    perimeter -= 1
 
             # check cell left of the current cell
             perimeter += 1
