@@ -24,25 +24,17 @@ def island_perimeter(grid):
             if i != 0:
                 if grid[i - 1][j] == 0:
                     perimeter += 1
-            else:  # island cells on the top border of grid
-                perimeter += 1
 
             if j != 0:
                 if grid[i][j - 1] == 0:
                     perimeter += 1
-            else:  # island cells on the left border of grid
-                perimeter += 1
 
             if i < len(grid[0]) - 1:
                 if grid[i + 1][j] == 0:
                     perimeter += 1
-            else:  # island cells on the bottom border of grid
-                perimeter += 1
 
             if j < len(grid[0]) - 1:
                 if grid[i][j + 1] == 0:
                     perimeter += 1
-            else:  # island cells on the right border of grid
-                perimeter += 1
 
     return perimeter
