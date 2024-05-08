@@ -75,7 +75,31 @@ if __name__ == "__main__":
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
+        [0, 0, 0, 1]
+    ]
+    # list IndexError as island cells are assumed to be completely surrounded by water (0s).
+    try:
+        print(island_perimeter(grid7))
+    except IndexError:
+        print("IndexError caught!")
+
+    grid8 = [
+        [0, 0, 0, 1],
+        [0, 0, 1, 1],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ]
+    # list IndexError as island cells are assumed to be completely surrounded by water (0s).
+    try:
+        print(island_perimeter(grid8))
+    except IndexError:
+        print("IndexError caught!")
+
+    grid9 = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
     # 8, since island cells are assumed to only be connected horizontally & vertically.
-    print(island_perimeter(grid7))
+    print(island_perimeter(grid9))
