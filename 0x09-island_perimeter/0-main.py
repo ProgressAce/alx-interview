@@ -5,6 +5,7 @@
 island_perimeter = __import__('0-island_perimeter').island_perimeter
 
 if __name__ == "__main__":
+
     grid = [
         [0, 0, 0, 0, 0, 0],
         [0, 1, 0, 0, 0, 0],
@@ -54,10 +55,7 @@ if __name__ == "__main__":
     ]
     #
     # TODO: ValueError, since grid's rectangular height and width are assumed to not exceed 100
-    try:
-        print(island_perimeter(grid5))  # prints 12
-    except ValueError:
-        print("ValueError caught!")
+    print(island_perimeter(grid5))  # prints 12
 
     grid6 = [
         [0, 0, 0, 0],
