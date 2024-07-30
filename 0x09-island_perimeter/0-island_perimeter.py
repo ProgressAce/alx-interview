@@ -19,10 +19,18 @@ def island_perimeter(grid):
     the water surrounding the island).
 
     """
-    grid_len = len(grid)
+    if not grid:
+        return -1
+    
+    grid_height = len(grid)
+    grid_width = len(grid[0])
+
+    if grid_height > 100 or grid_width > 100:
+        return -1
+    
     perimeter = 0
-    for i in range(grid_len):
-        for j in range(grid_len):
+    for i in range(grid_height):
+        for j in range(grid_width):
             if grid[i][j] == 1:
                 perimeter += 4
 
@@ -31,12 +39,12 @@ def island_perimeter(grid):
                     if grid[i][j - 1] == 1:
                         perimeter -= 1
 
-                if i + 1 != grid_len:
+                if i + 1 != grid_height:
                     # checks for bottom island cell
                     if grid[i + 1][j] == 1:
                         perimeter -= 1
 
-                if j + 1 != grid_len:
+                if j + 1 != grid_width:
                     # checks for right island cell
                     if grid[i][j + 1] == 1:
                         perimeter -= 1
