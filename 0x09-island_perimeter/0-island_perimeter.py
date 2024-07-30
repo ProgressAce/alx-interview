@@ -26,20 +26,24 @@ def island_perimeter(grid):
             if grid[i][j] == 1:
                 perimeter += 4
 
-                try:
+                if j - 1 != -1:
                     # checks for left island cell
                     if grid[i][j - 1] == 1:
                         perimeter -= 1
+
+                if i + 1 != grid_len:
                     # checks for bottom island cell
                     if grid[i + 1][j] == 1:
                         perimeter -= 1
+
+                if j + 1 != grid_len:
                     # checks for right island cell
                     if grid[i][j + 1] == 1:
                         perimeter -= 1
+
+                if i - 1 != -1:
                     # checks for top island cell
                     if grid[i - 1][j] == 1:
                         perimeter -= 1
-                except IndexError:
-                    raise IndexError
 
     return perimeter
