@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """This module solves the prime game challenge."""
 
+
 def generatePrimes(n):
     """Builds up all the prime numbers from 2 up to the given number.
-    
+
     Uses the Sieve of Eratosthenes to efficiently find the prime numbers up
     to n. This algorithm is efficient for numbers before 10 million.
     Returns:
@@ -16,14 +17,14 @@ def generatePrimes(n):
         if prime_nums[i]:
             for multiple in range(i * i, n + 1, i):
                 prime_nums[multiple] = False
-        
+
         i += 1
 
     primes = []
     for i in range(n + 1):
         if prime_nums[i]:
             primes.append(i)
-    
+
     return primes
 
 
@@ -51,5 +52,5 @@ def isWinner(x, nums):
         return 'Maria'
     if ben_score > maria_score:
         return 'Ben'
-    
+
     return None  # should indicate a draw
