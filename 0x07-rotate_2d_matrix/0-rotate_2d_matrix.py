@@ -24,17 +24,3 @@ def rotate_2d_matrix(matrix: list):
             temp = matrix[i][j]
             matrix[i][j] = matrix[i][matrix_len - j - 1]
             matrix[i][matrix_len - j - 1] = temp
-
-
-if __name__ == '__main__':
-    matrix = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-
-    print(matrix)
-    rotate_matrix(matrix)
-    print("90 degrees rotation")
-    for row in matrix:
-        print(row)
